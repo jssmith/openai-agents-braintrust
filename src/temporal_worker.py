@@ -18,7 +18,7 @@ from temporalio.worker import Worker
 
 from temporal_workflow import BraintrustDemoAgent
 
-from agents import set_trace_processors
+from agents import set_trace_processors, trace
 from braintrust import init_logger
 from braintrust.wrappers.openai import BraintrustTracingProcessor
 
@@ -34,19 +34,19 @@ async def main():
             "localhost:7233",
             data_converter=open_ai_data_converter,
         )
-
-        model_activity = ModelActivity(model_provider=None)
-        worker = Worker(
-            client,
-            task_queue="openai-agents-task-queue",
-            workflows=[
-                BraintrustDemoAgent,
-            ],
-            activities=[
-                model_activity.invoke_model_activity,
-            ],
-        )
-        await worker.run()
+        with trace("haiku agent"):
+            model_activity = ModelActivity(model_provider=None)
+            worker = Worker(
+                client,
+                task_queue="openai-agents-task-queue",
+                workflows=[
+                    BraintrustDemoAgent,
+                ],
+                activities=[
+                    model_activity.invoke_model_activity,
+                ],
+            )
+            await worker.run()
 
 
 if __name__ == "__main__":

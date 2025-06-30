@@ -97,7 +97,7 @@ dependencies = [
 requires-dist = [
     { name = "autoevals", specifier = ">=0.0.129" },
     { name = "braintrust", extras = ["openai-agents"], specifier = ">=0.1.6" },
-    { name = "temporalio", extras = ["openai-agents"], git = "https://github.com/temporalio/sdk-python" },
+    { name = "temporalio", extras = ["openai-agents"], git = "https://github.com/temporalio/sdk-python?rev=openai_set_processor" },
 ]
 
 [[package]]
@@ -641,7 +641,7 @@ wheels = [
 [[package]]
 name = "temporalio"
 version = "1.13.0"
-source = { git = "https://github.com/temporalio/sdk-python#61d5072d476b04ff7f799cf8e4eb90aedfccb6f0" }
+source = { git = "https://github.com/temporalio/sdk-python?rev=openai_set_processor#20d72baefb1fbdd141948ffc27a850d4ad8c4337" }
 dependencies = [
     { name = "protobuf" },
     { name = "types-protobuf" },
