@@ -14,6 +14,10 @@ from temporalio.contrib.openai_agents.open_ai_data_converter import (
 from temporalio.contrib.openai_agents.temporal_openai_agents import (
     set_open_ai_agent_temporal_overrides,
 )
+from temporalio.contrib.openai_agents.trace_interceptor import (
+    OpenAIAgentsTracingInterceptor,
+)
+
 from temporalio.worker import Worker
 
 from temporal_workflow import BraintrustDemoAgent
@@ -33,20 +37,20 @@ async def main():
         client = await Client.connect(
             "localhost:7233",
             data_converter=open_ai_data_converter,
+            interceptors=[OpenAIAgentsTracingInterceptor()],
         )
-        with trace("haiku agent"):
-            model_activity = ModelActivity(model_provider=None)
-            worker = Worker(
-                client,
-                task_queue="openai-agents-task-queue",
-                workflows=[
-                    BraintrustDemoAgent,
-                ],
-                activities=[
-                    model_activity.invoke_model_activity,
-                ],
-            )
-            await worker.run()
+        model_activity = ModelActivity(model_provider=None)
+        worker = Worker(
+            client,
+            task_queue="openai-agents-task-queue",
+            workflows=[
+                BraintrustDemoAgent,
+            ],
+            activities=[
+                model_activity.invoke_model_activity,
+            ],
+        )
+        await worker.run()
 
 
 if __name__ == "__main__":
