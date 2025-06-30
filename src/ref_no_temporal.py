@@ -16,5 +16,5 @@ async def main():
  
  
 if __name__ == "__main__":
-    set_trace_processors([BraintrustTracingProcessor(init_logger("openai-agent"))])
+    set_trace_processors([BraintrustTracingProcessor(init_logger("openai-agent-without-temporal"))])
     asyncio.run(main())

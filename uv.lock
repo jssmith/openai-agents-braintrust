@@ -97,7 +97,7 @@ dependencies = [
 requires-dist = [
     { name = "autoevals", specifier = ">=0.0.129" },
     { name = "braintrust", extras = ["openai-agents"], specifier = ">=0.1.6" },
-    { name = "temporalio", extras = ["openai-agents"], specifier = ">=1.13.0" },
+    { name = "temporalio", extras = ["openai-agents"], git = "https://github.com/temporalio/sdk-python" },
 ]
 
 [[package]]
@@ -375,7 +375,7 @@ wheels = [
 
 [[package]]
 name = "openai-agents"
-version = "0.1.0"
+version = "0.0.19"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "griffe" },
@@ -386,9 +386,9 @@ dependencies = [
     { name = "types-requests" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/99/f8/a292d8f506997355755d88db619966539ec838ce18f070c5a101e5a430ec/openai_agents-0.1.0.tar.gz", hash = "sha256:a697a4fdd881a7a16db8c0dcafba0f17d9e90b6236a4b79923bd043b6ae86d80", size = 1379588, upload-time = "2025-06-27T20:58:03.186Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/53/a3/301c6302bd2142c44674b4ccfb90d3da6771e17cef2e9fa2744256fd8dca/openai_agents-0.0.19.tar.gz", hash = "sha256:4090d683ef7257b3f6299f76e477ad51a970fd76de7c55df65f4bc5029580f2b", size = 1369353, upload-time = "2025-06-18T00:49:15.665Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/31/5b/326e6b1b661dbef718977a8379f9702a4eec1df772450517870beeb3af35/openai_agents-0.1.0-py3-none-any.whl", hash = "sha256:6a8ef71d3f20aecba0f01bca2e059590d1c23f5adc02d780cb5921ea8a7ca774", size = 130620, upload-time = "2025-06-27T20:58:01.461Z" },
+    { url = "https://files.pythonhosted.org/packages/20/69/899b33c97d5ee6ce454d5cdf89ddddcec9100bece4ed508229b06b1a07ca/openai_agents-0.0.19-py3-none-any.whl", hash = "sha256:daff03408e3a069e2a04fdf3968296cdc5f63ab635df1d8a54ca2e9352e68516", size = 126694, upload-time = "2025-06-18T00:49:13.906Z" },
 ]
 
 [[package]]
@@ -641,19 +641,11 @@ wheels = [
 [[package]]
 name = "temporalio"
 version = "1.13.0"
-source = { registry = "https://pypi.org/simple" }
+source = { git = "https://github.com/temporalio/sdk-python#61d5072d476b04ff7f799cf8e4eb90aedfccb6f0" }
 dependencies = [
     { name = "protobuf" },
     { name = "types-protobuf" },
     { name = "typing-extensions" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/3e/a3/a76477b523937f47a21941188c16b3c6b1eef6baadc7c8efeea497d909de/temporalio-1.13.0.tar.gz", hash = "sha256:5a979eee5433da6ab5d8a2bcde25a1e7d454e91920acb0bf7ca93d415750828b", size = 1558745, upload-time = "2025-06-20T19:57:26.944Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/f5/f4/a5a74284c671bd50ce7353ad1dad7dab1a795f891458454049e95bc5378f/temporalio-1.13.0-cp39-abi3-macosx_10_12_x86_64.whl", hash = "sha256:7ee14cab581352e77171d1e4ce01a899231abfe75c5f7233e3e260f361a344cc", size = 12086961, upload-time = "2025-06-20T19:57:15.25Z" },
-    { url = "https://files.pythonhosted.org/packages/1f/b7/5dc6e34f4e9a3da8b75cb3fe0d32edca1d9201d598c38d022501d38650a9/temporalio-1.13.0-cp39-abi3-macosx_11_0_arm64.whl", hash = "sha256:575a0c57dbb089298b4775f3aca86ebaf8d58d5ba155e7fc5509877c25e6bb44", size = 11745239, upload-time = "2025-06-20T19:57:17.934Z" },
-    { url = "https://files.pythonhosted.org/packages/04/30/4b9b15af87c181fd9364b61971faa0faa07d199320d7ff1712b5d51b5bbb/temporalio-1.13.0-cp39-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:6bf099a27f22c0dbc22f3d86dba76d59be5da812ff044ba3fa183e3e14bd5e9a", size = 12119197, upload-time = "2025-06-20T19:57:20.509Z" },
-    { url = "https://files.pythonhosted.org/packages/46/9f/a5b627d773974c654b6cd22ed3937e7e2471023af244ea417f0e917e617b/temporalio-1.13.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f7e20c711f41c66877b9d54ab33c79a14ccaac9ed498a174274f6129110f4d84", size = 12413459, upload-time = "2025-06-20T19:57:22.816Z" },
-    { url = "https://files.pythonhosted.org/packages/a3/73/efb6957212eb8c8dfff26c7c2c6ddf745aa5990a3b722cff17c8feaa66fc/temporalio-1.13.0-cp39-abi3-win_amd64.whl", hash = "sha256:9286cb84c1e078b2bcc6e8c6bd0be878d8ed395be991ac0d7cff555e3a82ac0b", size = 12440644, upload-time = "2025-06-20T19:57:25.175Z" },
 ]
 
 [package.optional-dependencies]
