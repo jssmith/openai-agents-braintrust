@@ -1,0 +1,11 @@
+[project]
+name = "braintrustdebug"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "autoevals>=0.0.129",
+    "braintrust[openai-agents]>=0.1.6",
+    "temporalio[openai-agents]>=1.13.0",
+]
